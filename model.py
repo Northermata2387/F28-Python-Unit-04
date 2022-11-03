@@ -1,3 +1,8 @@
+# MODEL.PY
+
+
+# SETUP CONFIGURATION
+#########################################################################
 # Flask SLQAlchemy Instance #
 
 # Importing the operating system
@@ -6,12 +11,11 @@ import os
 # Importing flask sqlalchemy to the page
 from flask_sqlalchemy import SQLAlchemy
 
-
 # Instatiate SQLAlchemy and save to the variable db
 db = SQLAlchemy()
 
 
-# Classes holding SQLAlchemy syntax to genrate SQL data model
+# CLASS/TABLE CONFIGURATION
 #########################################################################
 # User(s) Class/Table
 class User(db.Model):
@@ -46,6 +50,7 @@ class Team(db.Model):
         self.team_name = team_name
         self.user_id = user_id
 
+
 # Project(s) Class/Table
 class Project(db.Model):
 
@@ -67,6 +72,10 @@ class Project(db.Model):
         if "description" in kwargs:
             self.description = kwargs["description"]
 
+
+
+# CONNECTION CONFIGURATION
+#########################################################################
 # Allowing file to configure database
 def connect_to_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["POSTGRES_URI"]
@@ -75,6 +84,8 @@ def connect_to_db(app):
     db.init_app(app)
     
 
+# EXECUTE CONFIGURATION
+#########################################################################
 # Run code
 if __name__ == "__main__":
     from flask import Flask
