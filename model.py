@@ -1,22 +1,20 @@
 # MODEL.PY
 
-
-# SETUP CONFIGURATION
+# SETUP
 #########################################################################
-# Flask SLQAlchemy Instance #
 
-# Importing the operating system
-import os
+# operating system > environ > mapping objects in PostgreSQL
+from os import environ
 
-# Importing flask sqlalchemy to the page
+# flask sqlalchemy > SQLAlchemy > converts Pythonic SQLAlchemy Expression Language to SQL statements
 from flask_sqlalchemy import SQLAlchemy
 
-# Instatiate SQLAlchemy and save to the variable db
+# SQLAlchemy > db > create object once and will attach as needed to a Flask application
 db = SQLAlchemy()
 
-
-# CLASS/TABLE CONFIGURATION
+# CLASS/SQL-TABLE
 #########################################################################
+
 # User(s) Class/Table
 class User(db.Model):
 
@@ -30,10 +28,10 @@ class User(db.Model):
     
     teams = db.relationship("Team", backref = "user", lazy = True)
     
+    # Instances for users login
     def __init__(self, username, password):
         self.username = username
         self.password = password
-    
     
 # Teams(s) Class/Table
 class Team(db.Model):
@@ -46,10 +44,10 @@ class Team(db.Model):
     team_name = db.Column(db.String(255), unique = True, nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
 
+    # Instances for team linked to user
     def __init__(self, team_name, user_id):
         self.team_name = team_name
         self.user_id = user_id
-
 
 # Project(s) Class/Table
 class Project(db.Model):
@@ -64,29 +62,30 @@ class Project(db.Model):
     completed = db.Column(db.Boolean, default = False)
     team_id = db.Column(db.Integer, db.ForeignKey("teams.id"), nullable = False)
     
+    # Instances for porject linked to user
     def __init__(self, project_name, completed, team_id, **kwargs):
         self.project_name = project_name
         self.completed = completed
         self.team_id = team_id
 
+        # Key Word Argument to allow description as an optional instance
         if "description" in kwargs:
             self.description = kwargs["description"]
 
-
-
-# CONNECTION CONFIGURATION
+# CONNECTION
 #########################################################################
-# Allowing file to configure database
+
+# Allowing file to configure to the database
 def connect_to_db(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["POSTGRES_URI"]
+    app.config["SQLALCHEMY_DATABASE_URI"] = environ["POSTGRES_URI"]
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
     
-
-# EXECUTE CONFIGURATION
+# EXECUTE
 #########################################################################
-# Run code
+
+# Imported by the server.py
 if __name__ == "__main__":
     from flask import Flask
     app = Flask(__name__)
