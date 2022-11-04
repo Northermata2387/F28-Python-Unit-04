@@ -33,6 +33,16 @@ class User(db.Model):
         self.username = username
         self.password = password
     
+    # (Instances for teams)
+    def get_all_projects(self):
+        projects = []
+
+        for team in self.teams:
+            for project in team.projects:
+                projects.append(project)
+
+        return projects
+    
 # Teams(s) Class/Table
 class Team(db.Model):
 
