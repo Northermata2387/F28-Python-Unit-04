@@ -4,41 +4,54 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/base.css" />
-    <title>{{ title }}</title>
+    <title>Project Management Software | focus.com</title>
   </head>
   <body>
     <header>
-        <nav class="nav">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
+        <nav>
+            <ul class="navbar flex-row fixed roboto">
+                <li class="navbar-logo flex-row ">
                 {% if page == "home" %}
-                    <a class="nav-link active" aria-current="page" href="#">
+                    <a class="focus-logo logo-active" aria-current="page" href="#">
                 {% else %}
-                    <a class="nav-link" href="{{ url_for('home') }}">
+                    <a class="focus-logo" href="{{ url_for('home') }}">
                 {% endif %}
-                      Home</a>
+                      <img class="focus-logo" src="../static/images/focus-logo.png" alt="">
+                    </a>
                 </li>
-                <li class="nav-item">
+                <li class="navbar-company-name">
+                  {% if page == "home" %}
+                      <a class="page-title title-active" aria-current="page" href="#">
+                  {% else %}
+                      <a class="page-title" href="{{ url_for('home') }}">
+                  {% endif %}
+                        focus
+                      </a>
+                  </li>
+                <li class="navbar-title">
                 {% if page == "teams" %}
-                    <a class="nav-link active" aria-current="page" href="#">
+                    <a class="page-title title-active" aria-current="page" href="#">
                 {% else %}
-                    <a class="nav-link" href="{{ url_for('teams') }}">
+                    <a class="page-title" href="{{ url_for('teams') }}">
                 {% endif %}
-                  Teams</a>
+                  teams</a>
                 </li>
-                <li class="nav-item">
+                <li class="navbar-title">
                 {% if page == "projects" %}
-                    <a class="nav-link active" aria-current="page" href="#">
+                    <a class="page-title title-active" aria-current="page" href="#">
                 {% else %}
-                    <a class="nav-link" href="{{ url_for('projects') }}">
+                    <a class="page-title" href="{{ url_for('projects') }}">
                 {% endif %}
-                    Projects</a>
+                    projects</a>
                 </li>
               </ul>
             </nav>
     </header>
-    <main>
+    <main class="padding-top-page">
         {% block main %}
         {% endblock %}
     </main>

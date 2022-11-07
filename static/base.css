@@ -1,0 +1,170 @@
+body {
+  background-color: hsl(220, 18%, 97%);
+  font-family: "Open Sans", sans-serif;
+  color: hsl(235, 6%, 53%);
+}
+
+/* Versatile Styling - apply as needed */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-bottom {
+  margin-bottom: 0.2rem;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.start-caps {
+  text-transform: capitalize;
+}
+
+.btn {
+  color: white;
+  background-color: hsl(32, 90%, 61%);
+  border: 1px solid hsl(32, 90%, 61%);
+  border-radius: 3px;
+  padding: 0.1rem 0.2rem;
+}
+
+.btn:hover {
+  color: hsl(226, 92%, 90%);
+  background-color: hsl(32, 90%, 50%);
+  border: 1px solid hsl(32, 90%, 61%);
+}
+
+.checkmark {
+  accent-color: hsl(32, 90%, 61%);
+}
+
+/* base.html */
+
+.fixed {
+  position: fixed;
+}
+
+.navbar {
+  background-color: rgb(255, 255, 255);
+  list-style-type: none;
+  width: 100vw;
+  height: 3.5rem;
+  margin: -0.5rem 0 0 -0.5rem;
+  border-bottom: 1px solid hsl(220, 18%, 97%);
+}
+
+.navbar-logo {
+  margin: 0.8rem 0.3rem 0 0;
+}
+
+.focus-logo {
+  width: 2rem;
+}
+
+.focus-logo:hover {
+  background-color: hsl(226, 92%, 90%);
+  border-radius: 50%;
+  height: 2rem;
+}
+
+.logo-active {
+  background-color: hsl(226, 92%, 90%);
+  border-radius: 50%;
+  height: 2rem;
+}
+
+.navbar-company-name {
+  margin: 1.2rem 1rem 0 0;
+  border-radius: 10%;
+}
+
+.navbar-title {
+  margin: 1.2rem 1rem 0 1rem;
+}
+
+.page-title {
+  text-decoration: none;
+  color: hsl(32, 90%, 61%);
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 3px;
+  padding: 0.1rem 0.3rem 0.2rem;
+}
+
+.page-title:hover {
+  background-color: hsl(226, 92%, 92%);
+  border-radius: 3px;
+  padding: 0.1rem 0.3rem 0.2rem;
+  color: hsl(32, 90%, 64%);
+}
+
+.title-active {
+  border: 1px solid hsl(32, 90%, 80%);
+  border-radius: 3px;
+}
+
+/* main - base.html */
+
+.padding-top-page {
+  padding-top: 3rem;
+}
+
+/* home.html */
+
+.home-card {
+  background-color: hsl(0, 0%, 100%);
+  margin: 5rem 0 0 7rem;
+  width: 20rem;
+  padding: 0 1rem 1rem;
+  border: 1px solid hsl(220, 18%, 97%);
+  border-radius: 3px;
+}
+
+.intro-card {
+  padding-top: 2rem;
+}
+
+.create-card {
+  padding-top: 5rem;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+}
+
+/* teams.html */
+
+.teams-card {
+  background-color: hsl(0, 0%, 100%);
+  margin: 1.5rem 0 0 1rem;
+  width: 30rem;
+  padding: 1rem 2rem;
+  border: 1px solid hsl(220, 18%, 97%);
+  border-radius: 3px;
+}
+
+/* projects.html */
+
+.projects-card {
+  background-color: hsl(0, 0%, 100%);
+  margin: 1.5rem 0 0 1rem;
+  width: 63rem;
+  padding: 1rem 2rem;
+  border: 1px solid hsl(220, 18%, 97%);
+  border-radius: 3px;
+}

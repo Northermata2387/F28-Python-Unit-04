@@ -1,45 +1,53 @@
 {% extends "base.html" %} {% block main %}
-<h1>Welcome to the Project Tracking App!</h1>
-<div class="form-container">
-  <h3>Add Team</h3>
-  <form action="{{ url_for('add_team') }}" method="POST">
-    {{ team_form.csrf_token() }}
-    <div>
-      <div class="form-group mt-2">
-        {{ team_form.team_name.label }} {{ team_form.team_name(class =
-        "form-control") }}
+<div class="flex-row">
+  <div class="flex-column home-card intro-card">
+    <h1 class="roboto">
+      focus helps bring your team and projects together to hurdle any obstacle
+    </h1>
+    <p>Keeping your team completely focused on every task... together!</p>
+  </div>
+  <div class="home-card text-center start-caps create-card">
+    <h3 class="roboto">Create Team</h3>
+    <form action="{{ url_for('add_team') }}" method="POST">
+      {{ team_form.csrf_token() }}
+      <div>
+        <div class="flex-column">
+          {{ team_form.team_name.label(class="margin-bottom" ) }} {{
+          team_form.team_name(class = "form-control") }}
+        </div>
+        <div class="submit-btn">
+          {{ team_form.submit(type="submit", class="btn") }}
+        </div>
       </div>
-      <div class="form-group mt-2">
-        {{ team_form.submit(type="submit", class="btn btn-primary") }}
-      </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 
-<div class="form-container mt-5">
-  <h3>Add Project</h3>
-  <form action="{{ url_for('add_project') }}" method="POST">
-    {{ project_form.csrf_token() }}
-    <div>
-      <div class="form-group mt-2">
-        {{ project_form.project_name.label }} {{ project_form.project_name(class
-        = "form-control") }}
+  <div class="home-card text-center start-caps">
+    <h3 class="roboto">Add Project</h3>
+    <form action="{{ url_for('add_project') }}" method="POST">
+      {{ project_form.csrf_token() }}
+      <div>
+        <div class="flex-column">
+          {{ project_form.project_name.label (class="margin-bottom" ) }} {{
+          project_form.project_name(class = "form-control") }}
+        </div>
+        <div class="flex-column">
+          {{ project_form.description.label (class="margin-bottom margin-top" )
+          }} {{ project_form.description(class = "form-control") }}
+        </div>
+        <div class="flex-column">
+          {{ project_form.completed.label (class="margin-bottom margin-top" ) }}
+          {{ project_form.completed (class="checkmark")}}
+        </div>
+        <div class="flex-column">
+          {{ project_form.team_selection.label (class="margin-bottom margin-top"
+          ) }} {{ project_form.team_selection }}
+        </div>
+        <div class="submit-btn">
+          {{ project_form.submit(type="submit", class="btn") }}
+        </div>
       </div>
-      <div class="form-group mt-2">
-        {{ project_form.description.label }} {{ project_form.description(class =
-        "form-control") }}
-      </div>
-      <div class="form-group mt-2">
-        {{ project_form.completed.label }} {{ project_form.completed }}
-      </div>
-      <div class="form-group mt-2">
-        {{ project_form.team_selection.label }} {{ project_form.team_selection
-        }}
-      </div>
-      <div class="form-group mt-2">
-        {{ project_form.submit(type="submit", class="btn btn-primary") }}
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
 {% endblock %}
